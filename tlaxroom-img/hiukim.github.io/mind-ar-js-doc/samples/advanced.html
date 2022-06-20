@@ -12,48 +12,48 @@
     <script>
       const showInfo = () => {
         let y = 0;
-        const profileButton = document.querySelector("#profile-button");
+        //const profileButton = document.querySelector("#profile-button");
         const webButton = document.querySelector("#web-button");
-        const emailButton = document.querySelector("#email-button");
-        const locationButton = document.querySelector("#location-button");
+        const homeButton = document.querySelector("#home-button");
+        const gitButton = document.querySelector("#git-button");
         const text = document.querySelector("#text");
 
-        profileButton.setAttribute("visible", true);
+        /*profileButton.setAttribute("visible", true);
         setTimeout(() => {
           webButton.setAttribute("visible", true);
-        }, 300);
+        }, 300);*/
         setTimeout(() => {
-          emailButton.setAttribute("visible", true);
+          homeButton.setAttribute("visible", true);
         }, 600);
         setTimeout(() => {
-          locationButton.setAttribute("visible", true);
+          gitButton.setAttribute("visible", true);
         }, 900);
 
-        let currentTab = '';
+        text.addEventListener('click', function (evt) {
+        if (currentTab === 'web') {
+          window.location.href = "https://demomarcadorimg.herokuapp.com/tlaxroom-img/";
+        }
+        if (currentTab === 'home') {
+          window.location.href = "https://login-tlaxroom.herokuapp.com/";
+        }
+        if (currentTab === 'git') {
+          window.location.href = "https://github.com/SistemasTecTlaxiaco/TLAXROOM/wiki";
+        }
+      });
         webButton.addEventListener('click', function (evt) {
-          text.setAttribute("value", "https://demomarcadorimg.herokuapp.com/tlaxroom-img/");
+          text.setAttribute("value", "refresca");
           currentTab = 'web';
         });
-        emailButton.addEventListener('click', function (evt) {
-          text.setAttribute("value", "hello@softmind.tech");
-          currentTab = 'email';
+        homeButton.addEventListener('click', function (evt) {
+          text.setAttribute("value", "Visita nuestra aplicacion de ADMINISTRACIÓN");
+          currentTab = 'home';
         });
-        profileButton.addEventListener('click', function (evt) {
-          text.setAttribute("value", "AR, VR Soluciones y consulta");
-          currentTab = 'profile';
-        });
-        locationButton.addEventListener('click', function (evt) {
+        gitButton.addEventListener('click', function (evt) {
           console.log("loc");
-          text.setAttribute("value", "Vancouver, Canada | Hong Kong");
-          currentTab = 'location';
+          text.setAttribute("value", "Visita nuestro wiki o nuestro repositorio");
+          currentTab = 'git';
         });
-
-        text.addEventListener('click', function (evt) {
-          if (currentTab === 'web') {
-            window.location.href="https://demomarcadorimg.herokuapp.com/tlaxroom-img/";
-          }
-        });
-      }
+        }
 
       const showPortfolio = (done) => {
         const portfolio = document.querySelector("#portfolio-panel");
