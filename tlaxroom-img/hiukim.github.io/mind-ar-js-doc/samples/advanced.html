@@ -18,10 +18,10 @@
         const gitButton = document.querySelector("#git-button");
         const text = document.querySelector("#text");
 
-        /*profileButton.setAttribute("visible", true);
+        gitButton.setAttribute("visible", true);
         setTimeout(() => {
           webButton.setAttribute("visible", true);
-        }, 300);*/
+        }, 300);
         setTimeout(() => {
           homeButton.setAttribute("visible", true);
         }, 600);
@@ -31,7 +31,7 @@
 
         text.addEventListener('click', function (evt) {
         if (currentTab === 'web') {
-          window.location.href = "https://demomarcadorimg.herokuapp.com/tlaxroom-img/";
+          window.location.href = "http://localhost/demomarcador-img/tlaxroom-img/";
         }
         if (currentTab === 'home') {
           window.location.href = "https://login-tlaxroom.herokuapp.com/";
@@ -49,7 +49,7 @@
           currentTab = 'home';
         });
         gitButton.addEventListener('click', function (evt) {
-          console.log("loc");
+          console.log("git");
           text.setAttribute("value", "Visita nuestro wiki o nuestro repositorio");
           currentTab = 'git';
         });
@@ -229,10 +229,10 @@
 	</div>
       </div>
 
-      <a-scene mindar-image="imageTargetSrc: https://demomarcadorimg.herokuapp.com/tlaxroom-img/tlaxroom.mind; showStats: false; uiScanning: #example-scanning-overlay;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-scene mindar-image="imageTargetSrc: http://localhost/demomarcador-img/tlaxroom-img//tlaxroom.mind; showStats: false; uiScanning: #example-scanning-overlay;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
         <a-assets>
           <img id="card" src="assets/card-example/card.png" />
-          <a href="https://login-tlaxroom.herokuapp.com/"><img id="icon-web" src="assets/card-example/icons/web.png" /></a>
+          <img id="icon-web" src="assets/card-example/icons/web.png" />
           <img id="icon-home" src="assets/card-example/icons/home.png" />
           <img id="icon-git" src="assets/card-example/icons/git.png" />
           
@@ -243,7 +243,7 @@
           <img id="coffeemachine-preview" src="assets/card-example/portfolio/Login2.png" />
           <img id="peak-preview" src="assets/card-example/portfolio/Login3.png" />
           
-          <a-asset-item id="avatarModel" src="https://demomarcadorimg.herokuapp.com/tlaxroom-img/Tlax-room.glb"></a-asset-item>
+          <a-asset-item id="avatarModel" src="http://localhost/demomarcador-img/tlaxroom-img/Tlax-room.glb"></a-asset-item>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable">
@@ -284,11 +284,11 @@
             animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
           ></a-image>
 
-          <a-image visible=false id="location-git" class="clickable" src="#icon-git" position="0.42 -0.5 0" height="0.15" width="0.15"
+          <a-image visible=false id="git-button" class="clickable" src="#icon-git" position="0.42 -0.5 0" height="0.15" width="0.15"
             animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
           ></a-image>
 
-          <a-gltf-model id="avatar" rotation="0 0 0" position="0 -0.25 0" scale="0.004 0.004 0.004" src="#avatarModel"></a-gltf-model>
+          <a-gltf-model id="avatar" rotation="0 0 0" position="0 -0.25 0" scale="0.02 0.02 0.02" src="#avatarModel"></a-gltf-model>
 
           <a-text id="text" class="clickable" value="" color="black" align="center" width="2" position="0 -1 0" geometry="primitive:plane; height: 0.1; width: 2;" material="opacity: 0.5"></a-text>
         </a-entity>
